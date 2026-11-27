@@ -1,0 +1,12 @@
+{
+  "name": "porpis-campus-canteen",
+  "version": "1.0.0",
+  "description": "Campus Canteen Pre-order and Pickup Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

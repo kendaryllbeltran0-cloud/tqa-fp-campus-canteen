@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porpis Campus Canteen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Porpis Campus Canteen</h1>
+    <p>Campus Canteen Pre-order and Pickup Management System</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#order-form">Place Order</a>
+</nav>
+
+<main>
+    <section id="home" class="welcome">
+        <h2>Welcome to the Campus Canteen!</h2>
+        <p>Order your favorite food and drinks in advance.</p>
+        <a href="#menu" class="menu-button">View Menu</a>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <h2>Our Food and Drinks</h2>
+        <p class="menu-description">Choose from our available canteen products.</p>
+
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <h3>Chicken Rice Meal</h3>
+                <p>Delicious chicken served with steamed rice.</p>
+                <strong>₱85.00</strong>
+                <button onclick="selectProduct('Chicken Rice Meal', 85)">Order Now</button>
+            </div>
+
+            <div class="menu-card">
+                <h3>Ham Sandwich</h3>
+                <p>Fresh bread with ham and vegetables.</p>
+                <strong>₱45.00</strong>
+                <button onclick="selectProduct('Ham Sandwich', 45)">Order Now</button>
+            </div>
+
+            <div class="menu-card">
+                <h3>French Fries</h3>
+                <p>Crispy and freshly prepared fries.</p>
+                <strong>₱50.00</strong>
+                <button onclick="selectProduct('French Fries', 50)">Order Now</button>
+            </div>
+
+            <div class="menu-card">
+                <h3>Chicken Burger</h3>
+                <p>Chicken patty served in a soft burger bun.</p>
+                <strong>₱65.00</strong>
+                <button onclick="selectProduct('Chicken Burger', 65)">Order Now</button>
+            </div>
+
+            <div class="menu-card">
+                <h3>Iced Tea</h3>
+                <p>Refreshing cold iced tea.</p>
+                <strong>₱25.00</strong>
+                <button onclick="selectProduct('Iced Tea', 25)">Order Now</button>
+            </div>
+
+            <div class="menu-card">
+                <h3>Bottled Water</h3>
+                <p>Refreshing drinking water.</p>
+                <strong>₱20.00</strong>
+                <button onclick="selectProduct('Bottled Water', 20)">Order Now</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="order-form" class="order-section">
+        <h2>Place Your Order</h2>
+
+        <form id="customer-order">
+            <label for="customer-name">Customer Name</label>
+            <input type="text" id="customer-name" required>
+
+            <label for="product">Selected Product</label>
+            <input type="text" id="product" readonly required>
+
+            <label for="price">Price</label>
+            <input type="text" id="price" readonly>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" min="1" max="50" value="1" required>
+
+            <div class="total">
+                Total: ₱<span id="total">0.00</span>
+            </div>
+
+            <button type="submit">Submit Order</button>
+        </form>
+
+        <div id="confirmation" class="confirmation"></div>
+    </section>
+</main>
+
+<footer>
+    <p>Porpis Campus Canteen</p>
+    <p>Campus Canteen Pre-order and Pickup Management System</p>
+</footer>
+
+<script>
+    let selectedPrice = 0;
+
+    function selectProduct(name, price) {
+        document.getElementById("product").value = name;
+        document.getElementById("price").value = "₱" + price.toFixed(2);
+
+        selectedPrice = price;
+
+        document.getElementById("quantity").value = 1;
+        calculateTotal();
+
+        document.getElementById("order-form").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    function calculateTotal() {
+        const quantity = Number(document.getElementById("quantity").value);
+        const total = selectedPrice * quantity;
+
+        document.getElementById("total").textContent =
+            total.toFixed(2);
+    }
+
+    document.getElementById("quantity").addEventListener("input", calculateTotal);
+
+    document.getElementById("customer-order").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const customerName = document.getElementById("customer-name").value.trim();
+        const product = document.getElementById("product").value;
+        const quantity = Number(document.getElementById("quantity").value);
+        const total = selectedPrice * quantity;
+
+        if (!customerName || !product || selectedPrice <= 0 || !Number.isInteger(quantity) || quantity < 1 || quantity > 50) {
+            alert("Please complete the form and enter a valid quantity.");
+            return;
+        }
+
+        document.getElementById("confirmation").innerHTML = `
+            <h3>Order Submitted Successfully!</h3>
+            <p>Customer: ${escapeHTML(customerName)}</p>
+            <p>Product: ${escapeHTML(product)}</p>
+            <p>Quantity: ${quantity}</p>
+            <p>Total: ₱${total.toFixed(2)}</p>
+            <p>Status: Pending</p>
+        `;
+
+        this.reset();
+        selectedPrice = 0;
+        document.getElementById("total").textContent = "0.00";
+    });
+
+    function escapeHTML(value) {
+        return value.replace(/[&<>"']/g, function(character) {
+            return {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            }[character];
+        });
+    }
+</script>
+
+</body>
+</html>

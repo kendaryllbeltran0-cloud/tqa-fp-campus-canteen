@@ -1,0 +1,15 @@
+
+# Node.js dependencies
+node_modules/
+app/node_modules/
+
+# Environment and secret files
+.env
+.env.*
+
+# Logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
