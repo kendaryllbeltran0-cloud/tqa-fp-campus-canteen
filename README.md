@@ -17,7 +17,6 @@ A web-based system that allows students to browse the canteen menu, place food o
 <<<<<<< HEAD
 | James Liester Aying | jamesgwap105 | Manual and Non-Functional Tester |  Confirmed |
 =======
-| James Liester Aying | jamesgwap105 | Manual and Non-Functional Tester | Pending |
 >>>>>>> 8496274 (Remove inactive team member)
 ## Project Structure
 
