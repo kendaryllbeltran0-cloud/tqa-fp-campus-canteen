@@ -14,7 +14,7 @@ A web-based system that allows students to browse the canteen menu, place food o
 |---|---|---|---|
 | Ken Daryll Beltran | kendaryllbeltran0-cloud | Test Lead | Confirmed |
 | Andrew Galon | Kiyotaka-z | Developer | Confirmed |
-| James Liester Aying | jamesgwap105 | Manual and Non-Functional Tester | Pending |
+| James Liester Aying | jamesgwap105 | Manual and Non-Functional Tester |  Confirmed |
 | Daniel Cinco | sincomarkdaniel-dev | Automation Tester | Pending |
 ## Project Structure
 
