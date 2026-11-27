@@ -12,11 +12,14 @@ A web-based system that allows students to browse the canteen menu, place food o
 
 ## Team Members
 
+## Team Members
+
 | Full Name | GitHub Username | Role | Confirmation |
 |---|---|---|---|
 | Ken Daryll Beltran | kendaryllbeltran0-cloud | Test Lead | Confirmed |
 | Andrew Galon | Kiyotaka-z | Developer | Confirmed |
 | James Liester Aying | jamesgwap105 | Manual and Non-Functional Tester | Confirmed |
+| Chritian Abalos | dreyyvian | Automation Tester | Pending |
 ## Project Structure
 
 - `app/` – Mini-system application
