@@ -1,4 +1,5 @@
 # Campus Canteen Pre-order and Pickup Management System
+# Group 6 – Campus Canteen Pre-order and Pickup Management System
 
 **Course:** IT-TESTQUA31 – Testing and Quality Assurance  
 **Organization:** Porpis Campus Canteen  
